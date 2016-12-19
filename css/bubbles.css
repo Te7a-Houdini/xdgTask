@@ -56,3 +56,9 @@ body {
 .countryName{
     margin-top: 40px;
 }
+
+.tap-target {
+
+    cursor: pointer;
+
+}

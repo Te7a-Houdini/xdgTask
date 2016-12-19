@@ -1,12 +1,14 @@
+countryObjects = 0;
 $( document ).ready(function() {
 
-    countryObjects = 0;
 
     $.ajax({
         'url' : 'https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json',
         'method' : 'GET',
         'success':function (response) {
-             countryObjects = JSON.parse(response);
+           countryObjects = JSON.parse(response);
+
+            localStorage.setItem("countryObjects", JSON.stringify(countryObjects));
 
             changeRandomCountries();
 
@@ -38,4 +40,6 @@ $( document ).ready(function() {
 
 
 });
+
+
 
