@@ -1,0 +1,57 @@
+body {
+    background: #00b4ff;
+    color: #333;
+    font: 100% Lato, Arial, Sans Serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+/* OBJECTS */
+
+.bubble {
+
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+
+    height: 200px;
+    position: absolute;
+    width: 200px;
+}
+.cityBalls {
+
+    width: 70px;
+    height: 70px;
+
+}
+
+.circle-container {
+    position: relative;
+    width: 24em;
+    height: 24em;
+    padding: 2.8em;
+    margin: 1.75em auto 0;
+}
+.circle-container div {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 6em; height: 6em;
+    margin: -2em;
+}
+
+.deg0 { transform: translate(12em); } /* 12em = half the width of the wrapper */
+.deg45 { transform: rotate(45deg) translate(12em) rotate(-45deg); }
+.deg90 { transform: rotate(90deg) translate(12em) rotate(-90deg); }
+
+.deg135 { transform: rotate(135deg) translate(12em) rotate(-135deg); }
+.deg180 { transform: translate(-12em); }
+.deg225 { transform: rotate(225deg) translate(12em) rotate(-225deg); }
+.deg315 { transform: rotate(315deg) translate(12em) rotate(-315deg); }
+
+.countryName{
+    margin-top: 40px;
+}
