@@ -21,6 +21,7 @@ $( document ).ready(function() {
 
         randomCountryArr = [];
         for (i =0; i< 5; i++){
+            $('#country'+ (i+1) ).show('slow');
             $('#country'+ (i+1) + ' > h4' )
                     .text(
                         Object.keys(countryObjects)
@@ -33,5 +34,8 @@ $( document ).ready(function() {
 
 
     }
+
+
+
 });
 
