@@ -7,9 +7,10 @@ $( document ).ready(function() {
             .on('tap', function (event) {
                 var jqueryTabbedElement = $(event.currentTarget);
 
-                if (jqueryTabbedElement.attr('taped') == true)
-                {
 
+                if (jqueryTabbedElement.attr('taped') == 'true')
+                {
+                    collapseCities(jqueryTabbedElement);
                 }
 
                 else
@@ -33,13 +34,15 @@ $( document ).ready(function() {
 
         jqueryTabbedElement.attr('taped',true);
 
-        localStorage.setItem("oldCountryLocation", JSON.stringify(jqueryTabbedElement.position()));
+        localStorage.setItem("oldCountryLocation", JSON.stringify(jqueryTabbedElement.offset()));
 
         jqueryTabbedElement.offset({top:20,left:90});
 
         $('.circle-container').show('slow');
 
         jqueryTabbedElement.show('slow');
+
+        jqueryTabbedElement.append('<h5 id="collapse" style="color:#5d12ce;">tap to collapse</h5>')
 
         drawCities(jqueryTabbedElement)
     }
@@ -52,7 +55,7 @@ $( document ).ready(function() {
 
         screenWidth = $(window).width();
 
-        cities = countryObjects[countryJqueryObj.text()];
+        cities = countryObjects[countryJqueryObj.find('.countryName').text()];
 
         tempWidth = 0;
 
@@ -78,8 +81,30 @@ $( document ).ready(function() {
         $('.cityBalls').show('slow');
 
 
+    }
+
+
+
+    function collapseCities (countryJqueryObj)
+    {
+        countryJqueryObj.attr('taped',false);
+
+        $('.cityBalls').remove();
+
+        countryJqueryObj.hide();
+
+        $('#collapse').remove();
+
+        oldCountryLocation =  JSON.parse(localStorage.getItem("oldCountryLocation"));
+
+        countryJqueryObj.offset({top: oldCountryLocation.top -20 , left : oldCountryLocation.left-100 });
+
+        $('#wrapper').children().show('slow');
+
+        $('.circle-container').children().show('slow');
 
     }
+
 
 });
 
