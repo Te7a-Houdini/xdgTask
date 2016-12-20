@@ -19,7 +19,10 @@ $( document ).ready(function() {
                     countryTab(jqueryTabbedElement);
                 }
 
-            });
+            }) .on('hold', function (event) {
+            event.currentTarget.classList.toggle('rotate');
+
+    });;
 
 
 
@@ -60,25 +63,29 @@ $( document ).ready(function() {
         tempWidth = 0;
 
 
-        for (i=0; i< cities.length; i ++)
+        if (typeof cities != 'undefined')
         {
-            tempWidth += 150;
-
-            if (tempWidth  > screenWidth)
+            for (i=0; i< cities.length; i ++)
             {
-                topMagrin +=100;
-                tempWidth = 0;
+                tempWidth += 150;
+
+                if (tempWidth  > screenWidth)
+                {
+                    topMagrin +=100;
+                    tempWidth = 0;
+                }
+
+                newCity = $('<div  class="cityBalls bubble "><h4 class="cityName">'+cities[i]+'</h4></div>');
+                newCity.offset({top:topMagrin , left:tempWidth});
+
+                $('#wrapper').append(newCity);
+
+                newCity.hide();
             }
-
-            newCity = $('<div  class="cityBalls bubble "><h4 class="cityName">'+cities[i]+'</h4></div>');
-            newCity.offset({top:topMagrin , left:tempWidth});
-
-            $('#wrapper').append(newCity);
-
-            newCity.hide();
+            $('.cityBalls').show('slow');
         }
 
-        $('.cityBalls').show('slow');
+
 
 
     }

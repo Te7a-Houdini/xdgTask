@@ -29,6 +29,16 @@ body {
 
 }
 
+.fancyNameBall{
+
+
+    width: 80px;
+    height: 80px;
+
+
+}
+
+
 .circle-container {
     position: relative;
     width: 24em;
@@ -111,3 +121,9 @@ body {
     color: #000;
     background-color: #4e4;
 }
+
+.rotate {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
